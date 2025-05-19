@@ -1,0 +1,80 @@
+# Servidor MCP para envio de mensagens via WhatsApp com WAHA
+
+## Nome da Tarefa
+
+Construir um servidor MCP para envio de mensagens no WhatsApp utilizando o WAHA.
+
+---
+
+## Descrição
+
+Este projeto implementa um servidor MCP com uma ferramenta (`tool`) e um recurso (`resource`) para envio de mensagens via WhatsApp utilizando o **WAHA**.
+
+### Tool: `send_message`
+
+Esta ferramenta recebe como parâmetros:
+
+- **número** (no formato internacional: +5511...)
+- **mensagem** a ser enviada
+
+A `tool` se comunica com um servidor local WAHA, realizando uma requisição **POST** na rota `/api/sendText`.
+
+### Exemplo de chamada em Python
+
+```python
+import requests
+
+url = "http://localhost:3000/api/sendText"
+headers = {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+}
+data = {
+    "chatId": "123123@c.us",
+    "text": "Hi there!",
+    "session": "default"
+}
+
+response = requests.post(url, json=data, headers=headers)
+print(response.json())
+```
+
+---
+
+### Como instanciar o servidor WAHA
+
+1. Siga os passos do vídeo: [YouTube - Dev Like a Pro](https://www.youtube.com/watch?v=RFerMyAUPRg)
+2. Consulte a documentação oficial: [WAHA Quick Start](https://waha.devlike.pro/docs/overview/quick-start/)
+
+---
+
+## Resource: `contatos`
+
+O recurso `contatos` vem pré-carregado com 3 números de telefone e nomes associados, por exemplo:
+
+- João - +5511999999999
+- Maria - +5511888888888
+- Pedro - +5511777777777
+
+Este recurso permite chamadas como:
+
+> "Envie uma mensagem de bom dia para o João"
+
+---
+
+## Entregável
+
+- Repositório no GitHub (ou outro)
+- Relatório básico de uso
+- Print de funcionalidade:
+  - Servidor funcional com:
+    - 1 Tool: `send_message`
+    - 1 Resource: `contatos`
+
+---
+
+## Referências
+
+- [WAHA Quick Start](https://waha.devlike.pro/docs/overview/quick-start/)
+- [YouTube: Dev Like a Pro](https://www.youtube.com/watch?v=RFerMyAUPRg&ab_channel=devlikeapro)
+- [Model Context Protocol - Quickstart](https://modelcontextprotocol.io/quickstart/server)
