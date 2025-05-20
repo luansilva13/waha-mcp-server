@@ -107,6 +107,7 @@ rm main.py
 # Create our main file
 touch client.py
 ```
+Ref: https://modelcontextprotocol.io/quickstart/client
 Inicie o projeto mcp com: 
 ```
 uv run mcp-client/client.py /message/message.py
