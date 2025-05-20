@@ -73,6 +73,10 @@ Este recurso permite chamadas como:
 
 ---
 
+## Start
+
+- Inicie o projeto com: uv run mcp-client/client.py /message/message.py
+
 ## Referências
 
 - [WAHA Quick Start](https://waha.devlike.pro/docs/overview/quick-start/)
