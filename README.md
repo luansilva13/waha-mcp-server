@@ -60,6 +60,25 @@ Este recurso permite chamadas como:
 
 > "Envie uma mensagem de bom dia para o João"
 
+Exemplo do arquivo contatos.json
+
+```
+[
+    {
+        "name": "João",
+        "phoneNumber": "+5594999999999"
+    },
+    {
+        "name": "Lizandra",
+        "phoneNumber": "+5594999999999"
+    },
+    {
+        "name": "Lucas",
+        "phoneNumber": "+5594999999999"
+    }
+]
+```
+
 ---
 
 ## Entregável
