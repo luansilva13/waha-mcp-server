@@ -85,6 +85,28 @@ docker run -it -p 3000:3000/tcp devlikeapro/waha
 ```
 ANTHROPIC_API_KEY=YOUR_KEY
 ```
+Criando o ambiente
+```
+# Create project directory
+uv init mcp-client
+cd mcp-client
+
+# Create virtual environment
+uv venv
+
+# Activate virtual environment
+# On Unix or MacOS:
+source .venv/bin/activate
+
+# Install required packages
+uv add mcp anthropic python-dotenv
+
+# On Unix or MacOS:
+rm main.py
+
+# Create our main file
+touch client.py
+```
 Inicie o projeto mcp com: 
 ```
 uv run mcp-client/client.py /message/message.py
