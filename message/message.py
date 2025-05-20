@@ -17,29 +17,6 @@ WAHA_SESSION = os.environ.get('WAHA_SESSION', 'default')
 
 CONTACTS_FILE = Path(os.environ.get('CONTACTS_FILE', '/home/luan-silva/ufg/atividades/tarefa_2/tarefa_luan/message/contatos.json'))
 
-
-# Tool: send_message
-#
-'''@app.tool(description="Envia uma mensagem de texto via WhatsApp com o número de telefone e o texto fornecidos")
-async def send_message(number: str, text: str):
-    try:
-        url = "http://localhost:3000/api/sendText"  # usando nome do serviço Docker
-        headers = {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-        }
-        data = {
-            "chatId": f"{number.replace('+', '')}@c.us",
-            "text": text,
-            "session": "default"
-        }
-        response = requests.post(url, json=data, headers=headers)
-        print(response.json())
-        return response.json()
-    except Exception as e:
-        print(f"Erro ao enviar mensagem: {e}")
-        return {"status": "error", "message": str(e)}
-'''
 # Tool: send_message
 @app.tool(description="Envia uma mensagem de texto via WhatsApp com o número de telefone e o texto fornecidos")
 async def send_message(number: str, text: str) -> Dict[str, Any]:
@@ -84,17 +61,8 @@ async def send_message(number: str, text: str) -> Dict[str, Any]:
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
         return {"status": "error", "message": str(e)}
-'''@app.resource('file:///message/contatos.json', name='contatos',description="Lista de contatos pré-carregados")
-async def list_contacts() -> list[dict[str, str]]:
-    """
-    Retorna a lista de contatos pré-carregados.
-    """
-    with open('/home/luan-silva/ufg/atividades/tarefa_2/tarefa_luan/message/contatos.json', encoding="utf-8") as f:
-        contatos: list[dict[str, str]] = json.load(f)
-    print(contatos)
-    
-    return contatos'''
 #Resource: contatos.json
+
 @app.resource('file:///contatos.json', name='contatos', description="Lista de contatos pré-carregados")
 async def list_contacts() -> List[Dict[str, Any]]:
     """

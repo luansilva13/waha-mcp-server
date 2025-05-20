@@ -73,10 +73,16 @@ Este recurso permite chamadas como:
 
 ---
 
-## Start
-
-- Inicie o projeto com: uv run mcp-client/client.py /message/message.py
-
+## Relatório básico de uso
+Temos duas estruturas: serviço WAHA(disponível na porta 3000) e o servidor mcp (servidor e cliente).
+Primeiramente inicie o servico WAHA e autentique através com o QR CODE gerado.
+```
+docker run -it -p 3000:3000/tcp devlikeapro/waha
+```
+- Inicie o projeto mcp com: 
+```
+uv run mcp-client/client.py /message/message.py
+```
 ## Referências
 
 - [WAHA Quick Start](https://waha.devlike.pro/docs/overview/quick-start/)
