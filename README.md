@@ -79,9 +79,18 @@ Primeiramente inicie o servico WAHA e autentique através com o QR CODE gerado.
 ```
 docker run -it -p 3000:3000/tcp devlikeapro/waha
 ```
+Você precisará de uma chave de API Anthropic do Anthropic Console.
 - Para a implementação do cliente mcp vamos usar o https://www.anthropic.com/
 - Gere uma chave dentro da api e adicione no .env na pasta mcp-client
 - Exemplo de .env
+```
+# Create .env file
+touch .env
+
+ANTHROPIC_API_KEY=<your key here>
+
+echo ".env" >> .gitignore
+```
 ```
 ANTHROPIC_API_KEY=YOUR_KEY
 ```
@@ -108,6 +117,9 @@ rm main.py
 touch client.py
 ```
 Ref: https://modelcontextprotocol.io/quickstart/client
+
+
+
 Inicie o projeto mcp com: 
 ```
 uv run mcp-client/client.py /message/message.py
